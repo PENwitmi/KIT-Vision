@@ -1,29 +1,22 @@
 import React from 'react';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
-import { Hero } from './components/Hero';
-import { PresidentMessage } from './components/PresidentMessage';
-import { Philosophy } from './components/Philosophy';
-import { FutureCenter } from './components/FutureCenter';
-import { CompetencyChart } from './components/CompetencyChart';
-import { Features } from './components/Features';
-import { SopKeywords } from './components/SopKeywords';
 import { Footer } from './components/Footer';
+import { HomePage } from './pages/HomePage';
+import { AppliedChemistryPage } from './pages/AppliedChemistryPage';
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen w-full overflow-x-hidden">
-      <Navigation />
-      <main>
-        <Hero />
-        <PresidentMessage />
-        <Philosophy />
-        <FutureCenter />
-        <CompetencyChart />
-        <Features />
-        <SopKeywords />
-      </main>
-      <Footer />
-    </div>
+    <HashRouter>
+      <div className="min-h-screen w-full overflow-x-hidden">
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/applied-chemistry" element={<AppliedChemistryPage />} />
+        </Routes>
+        <Footer />
+      </div>
+    </HashRouter>
   );
 };
 
